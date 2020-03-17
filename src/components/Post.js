@@ -23,7 +23,7 @@ class Post extends Component {
             }
             
          const posts = payload.data;
-         console.log('POSTS=' + JSON.stringify(posts));
+         //console.log('POSTS=' + JSON.stringify(posts));
          this.setState({
              recentPosts: posts
          })
@@ -40,8 +40,12 @@ class Post extends Component {
                 <ul> 
                     {
                         this.state.recentPosts.map(post=>{
-                            return <li key={post.id}>{post.title}</li>
-                        })
+                            return <li key={post.id}>
+                                
+                                <div><h3>{post.title}</h3></div>
+                                
+                                </li>
+                        }) 
                     }
                 </ul>
             </div>

@@ -6,7 +6,7 @@ const controllers = require('../controllers')
 
 router.get('/', (req, res) => {
   const data = req.config // {cdn:<STRING>, global:<OBJECT>}
-  res.render('index', data) // render home.mustache
+  res.render('home', data) // render home.mustache
 })
 
 module.exports = router
