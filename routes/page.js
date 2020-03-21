@@ -10,9 +10,9 @@ router.get('/', (req, res) => {
 })
 router.get('/post/:slug',(req,res,)=>{
   const slug= req.params.slug;
-  const post={
-    slug:slug
+  const data ={
+    post: JSON.stringify({slug:slug})
   }
-  res.render('post',post );
+  res.render('post',data );
 })
 module.exports = router
