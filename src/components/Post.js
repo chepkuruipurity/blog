@@ -39,18 +39,18 @@ class Post extends Component {
                 <h1> Recent posts</h1>
                 <ul style={{listStyleType:'none'}}> 
                     {
-                        this.state.recentPosts.map(post=>{
+                        this.state.recentPosts.map(post=>{ 
                             return <li key={post.id}>
                                 
                                 <div style={{display:'flex',marginBottom:16}}>
-                                    <a href='#'> <img style={{ marginRight:12}} src={post.image+'=s160-c'}/></a>
+                                    <a href={'/post/+post.slug'}> <img style={{ marginRight:12}} src={post.image+'=s160-c'}/></a>
                                    
                                     <div>
                                         <small>{post.dateString} </small>
-                                        <a href="#"> <h3 style={{marginTop:0}}>{post.title}</h3></a>
+                                        <a href={'/post/+post.slug'}> <h3 style={{marginTop:0}}>{post.title}</h3></a>
                                    
                                     <p>{post.preview}</p>
-                                    <a style={{color:'red'}} href="#">Read More</a>
+                                    <a style={{color:'red'}} href={'/post/+post.slug'}>Read More</a>
                                     </div>
                                     </div>
                                 
