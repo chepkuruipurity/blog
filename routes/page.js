@@ -10,9 +10,29 @@ router.get('/', (req, res) => {
 })
 router.get('/post/:slug',(req,res,)=>{
   const slug= req.params.slug;
-  const data ={
-    post: JSON.stringify({slug:slug})
-  }
-  res.render('post',data );
+const postController= new controllers.post()
+  postController.get({slug:slug})
+  .then(posts=>{
+    if(posts.length===0){
+      //post not found
+      throw new Error('Post not found!');
+      return
+    }
+    const post= posts[0]
+    const data= {
+      post:JSON.stringify(post)
+    }
+res.render('post',data);
+  })
+  .catch(err=>{
+    res.json({
+      confirmation:'fail',
+      message: err.message
+    }
+
+    )
+
+  })
+  
 })
 module.exports = router
